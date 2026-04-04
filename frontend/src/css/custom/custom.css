@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-width:290px;
+    margin: 0 auto;
+}
+
+:root {
+    --primary-background-color: #FFFFFF;
+    --primary-text-color: #111827;
+    --primary-text-decoration: none;
+    --primary-cursor: pointer;
+
+    --secondary-text-color: #FFFFFF;
+    --secondary-text-decoration: underline;
+
+    --header-border-bottom: 2px solid #E5E7EB;
+
+    --footer-border-top-color: #1F2937;
+    --footer-border-top: 1px solid var(--footer-border-top-color);
+
+    --button-primary-background-color: #1F2937;
+    --button-primary-background-color-hover: #111827;
+    --button-primary-color: #FFFFFF;
+    --button-primary-border-radius: 0.5rem;
+    --button-primary-border-style: none;
+    --button-primary-transition: all 0.2s ease;
+    --button-font-weight: bold;
+
+    --form-a-font-weight: bold;
+
+    --pagination-button-border: 1px solid var(--categorie-border-color);
+
+    --input-hover-border: 1px solid var(--footer-border-top-color);
+    --input-box-shadow: 0 0 5px var(--footer-border-top-color);
+
+    --input-focus: 3px solid var(--footer-border-top-color);
+    --input-focus-box-shadow: 0 0 5px var(--footer-border-top-color);
+}
+
+header {
+    background: var(--primary-background-color);
+    border-bottom: var(--header-border-bottom);
+    color: var(--primary-text-color);
+}
+
+a {
+    text-decoration: var(--primary-text-decoration);
+    color: var(--primary-text-color);
+    cursor: var(--primary-cursor);
+}
+
+button {
+    background-color: var(--button-primary-background-color);
+    color: var(--button-primary-color);
+    cursor: var(--primary-cursor);
+    border-radius: var(--button-primary-border-radius);
+    border-style: var(--button-primary-border-style);
+    transition: var(--button-primary-transition);
+}
+
+button:hover {
+    background-color: var(--button-primary-background-color-hover);
+    color: var(--button-primary-color);
+}
+
+.navButton, .paginationButtons {
+    background-color: var(--button-primary-color);
+    color: var(--button-primary-background-color);
+    cursor: var(--primary-cursor);
+    border-radius: var(--button-primary-border-radius);
+    border-style: var(--button-primary-border-style);
+    transition: var(--button-primary-transition);
+    font-weight: var(--button-font-weight);
+}
+
+.navButton:hover, .paginationButtons:hover  {
+    color: var(--button-primary-color);
+}
+
+footer {
+    background: var(--primary-text-color);
+    border-top: var(--footer-border-top);
+    color: var(--secondary-text-color);
+}
+
+footer a {
+    color: var(--secondary-text-color);
+}
+
+footer a:hover {
+    text-decoration: var(--secondary-text-decoration);
+}
+
+footer #footercopyright {
+    color: var(--secondary-text-color);
+}
+
+form a:hover {
+    text-decoration: var(--secondary-text-decoration);
+}
+
+form a {
+    font-weight: var(--form-a-font-weight);
+}
+
+.paginationButtons {
+    border: var(--pagination-button-border);
+}
+
+input:hover {
+    border: var(--input-hover-border);
+    box-shadow: var(--input-box-shadow);
+}
+
+input:focus {
+    border: var(--input-focus) !important;
+    box-shadow: var(--input-focus-box-shadow) !important;
+}

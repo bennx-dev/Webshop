@@ -1,0 +1,98 @@
+:root {
+    --categorie-background-color: #F9FAFB;
+    --categorie-border-color: #E5E7EB;
+    --categorie-border-radius: 10px;
+
+    --categorie-details-background-color: #FFFFFF;
+    --categorie-details-border-radius: 8px;
+
+    --categorie-summary-background-color: #F3F4F6;
+    --categorie-summary-text-color: #111827;
+    --categorie-summary-font-weight: bold;
+    --categorie-summary-hover-background-color: #E5E7EB;
+    --categorie-summary-transition: background-color 0.2s ease;
+
+    --categorie-li-text-color: #374151;
+    --categorie-li-details-summary-font-weight: 600;
+    --categorie-li-details-summary-border-radius: 6px;
+    --categorie-li-details-summary-hover-background-color: #F3F4F6;
+
+    --categorie-li-details-ul-li-border-color: #E5E7EB;
+    --categorie-li-details-ul-li-background-color: #FFFFFF;
+
+    --categorie-li-no-details-border-radius: 6px;
+    --categorie-li-no-details-hover-background-color: #F3F4F6;
+    --categorie-li-no-details-hover-transform: translateX(2px);
+}
+
+.categorieen {
+    background-color: var(--categorie-background-color);
+    border: 1px solid var(--categorie-border-color);
+    border-radius: var(--categorie-border-radius);
+}
+
+.categorieen h2 {
+    color: var(--primary-text-color);
+    font-size: 1.2rem;
+}
+
+/*Hoofd-categorieen*/
+.categorieen details {
+    background-color: var(--categorie-details-background-color);
+    border: 1px solid var(--categorie-border-color);
+    border-radius: var(--categorie-details-border-radius);
+}
+
+.categorieen summary {
+    background-color: var(--categorie-summary-background-color);
+    color: var(--categorie-summary-text-color);
+    font-weight: var(--categorie-summary-font-weight);
+    cursor: var(--primary-cursor);
+    transition: var(--categorie-summary-transition);
+}
+
+.categorieen summary:hover {
+    background-color: var(--categorie-summary-hover-background-color);
+}
+
+/*Sub-categorieen*/
+.categorieen ul {
+    list-style: none;
+}
+
+.categorieen li {
+    color: var(--categorie-li-text-color);
+}
+
+/*Childs*/
+.categorieen li details {
+    border: none;
+    background-color: transparent;
+}
+
+.categorieen li details summary {
+    background-color: transparent;
+    font-weight: var(--categorie-li-details-summary-font-weight);
+    border-radius: var(--categorie-li-details-summary-border-radius);
+}
+
+.categorieen li details summary:hover {
+    background-color: var(--categorie-li-details-summary-hover-background-color);
+}
+
+.categorieen li details ul li {
+    border-left: 2px solid var(--categorie-li-details-ul-li-border-color);
+    border-radius: 0 6px 6px 0;
+    background-color: var(--categorie-li-details-ul-li-background-color);
+}
+
+/* elke <li> die geen <details> als child heeft */
+.categorieen li:not(:has(details)) {
+    border-radius: var(--categorie-li-no-details-border-radius);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.categorieen li:not(:has(details)):hover {
+    background-color: var(--categorie-li-no-details-hover-background-color);
+    transform: var(--categorie-li-no-details-hover-transform);
+}
