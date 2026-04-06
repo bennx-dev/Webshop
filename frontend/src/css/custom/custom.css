@@ -34,6 +34,8 @@ body {
     --form-a-font-weight: bold;
 
     --pagination-button-border: 1px solid var(--categorie-border-color);
+    --pagination-button-width: 40px;
+    --pagination-button-height: 40px;
 
     --input-hover-border: 1px solid var(--footer-border-top-color);
     --input-box-shadow: 0 0 5px var(--footer-border-top-color);
@@ -110,6 +112,8 @@ form a {
 
 .paginationButtons {
     border: var(--pagination-button-border);
+    width: var(--pagination-button-width);
+    height: var(--pagination-button-height);
 }
 
 input:hover {

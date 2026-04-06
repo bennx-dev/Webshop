@@ -1,20 +1,20 @@
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {setPageInUrl} from "./pagination.jsx";
 import {createPagination} from "./pagination.jsx";
+import {getPageFromURL} from "./pagination.jsx";
 
-export default function ProductsHome({page}) {
-
-    //fixed for now
-    const size = 24;
-
+export default function ProductsHome() {
     const [products, setProducts] = useState([]);
+
+    //pagination states
     const [totalPages, setTotalPages] = useState(0);
+    const [page, setPage] = useState(getPageFromURL());
+
+    //fetch articles
     useEffect(() => {
-        setPageInUrl(page);
         async function fetchArtikelen() {
             try {
-                const response = await fetch(`api/artikelen?page=${page}&size=${size}`);
+                const response = await fetch(`api/artikelen?page=${page-1}&size=`);
                 if (response.ok) {
                     const data = await response.json();
                     setProducts(data.content);
@@ -28,6 +28,7 @@ export default function ProductsHome({page}) {
         fetchArtikelen();
     }, [page]);
 
+    // render articles
     return (
         <div className="d-grid">
 
@@ -44,7 +45,7 @@ export default function ProductsHome({page}) {
                         <div key={product.artikelId} className="col">
                             <div className="btn p-0 text-center d-flex flex-column artikel h-100 ">
                                 <Link to="/" className="d-flex flex-column h-100">
-                                    <img className="img-fluid w-100" src={`../webshop/assets/products/${product.artikelId}.jpg`}
+                                    <img className="img-fluid w-100" src={`assets/products/${product.artikelId}.jpg`}
                                          alt={`${product.naam}`}>
                                     </img>
                                     <h3 className="beschrijving flex-grow-1 flex-wrap">{product.beschrijving}</h3>
@@ -60,8 +61,9 @@ export default function ProductsHome({page}) {
                 })}
             </div>
 
+            {/*render pagination buttons*/}
             <div className="my-4">
-                {createPagination(totalPages, page)}
+                {createPagination(totalPages, setPage)}
             </div>
         </div>
     );

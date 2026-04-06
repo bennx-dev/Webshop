@@ -1,29 +1,43 @@
 "use strict";
 
-export function setPageInUrl(page) {
-    //?page=2, exists? -> overwrite, otherwise add.
+function savePage(page, setPage) {
+    //if exists in url, overwrite, otherwise add.
     const params = new URLSearchParams(window.location.search);
     params.set("page", page);
 
-    //change URL without reload
+    //set in history stack
     window.history.pushState({}, "", "?" + params.toString());
+
+    //pagination, load page from history stack (Back-forward button in browser)
+    window.onpopstate = () => {
+        setPage(getPageFromURL());
+    };
 }
 
-export function createPagination(totalPages, currentPage, setPage) {
-    const pages = [];
+export function getPageFromURL () {
+    const page = parseInt(new URLSearchParams(window.location.search).get("page"));
+    return isNaN(page) || page < 0 ? 0 : page;
+}
 
-    for (let i = 0; i < totalPages; i++) {
-        pages.push(i);
+function loadPage(page, setPage) {
+    window.scroll({ top:0, left:0, behavior: "instant",});
+    setPage(page);
+    savePage(page, setPage);
+}
+
+export function createPagination(totalPages, setPage) {
+    const buttons = [];
+
+    for (let page = 0; page < totalPages; page++) {
+        buttons.push(
+            <button
+                key={page}
+                onClick={() => loadPage(page+1, setPage)}
+                className="paginationButtons m-1"
+            >
+                {page + 1}
+            </button>
+        );
     }
-
-    return pages.map((page) => (
-        <button
-            key={page}
-            onClick={() => setPage(page)}
-            style = {{ width: "40px", height: "40px" }}
-            className="paginationButtons m-1"
-        >
-            {page + 1}
-        </button>
-    ));
+    return buttons;
 }

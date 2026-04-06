@@ -6,7 +6,7 @@ export default ({ mode }) => {
 
     return defineConfig({
         plugins: [react()],
-        base: env.NODE_ENV === 'production' ? '/webshop/' : '',
+        base: '/webshop/',
         server: {
             proxy: {
                 '/webshop/api/': env.VITE_API_URL
