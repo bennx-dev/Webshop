@@ -34,4 +34,9 @@ public class ArtikelController {
     Artikel findById(@PathVariable @Positive Long id) {
         return artikelService.findById(id);
     }
+
+    @GetMapping("categorie/{categorieId}")
+    Page<Artikel> findByCategorieIdPaged (@PathVariable @Positive long categorieId, Pageable pageable) {
+        return artikelService.findByCategorieIdPaged(categorieId, pageable);
+    }
 }

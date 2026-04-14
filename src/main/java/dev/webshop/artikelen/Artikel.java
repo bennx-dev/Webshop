@@ -1,9 +1,11 @@
 package dev.webshop.artikelen;
 import static dev.webshop.utils.Check.*;
 
+import dev.webshop.categorieen.Categorie;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "Artikelen")
@@ -24,6 +26,13 @@ public class Artikel {
     private Long aantalBesteldLeverancier;
     private Long maxAantalInMagazijnPLaats;
     private Long leveranciersId;
+    @ManyToMany
+    @JoinTable(
+            name = "ArtikelCategorieen",
+            joinColumns = @JoinColumn(name = "artikelId"),
+            inverseJoinColumns = @JoinColumn(name = "categorieId")
+    )
+    Set<Categorie> categorieen;
 
     protected Artikel() {
     }

@@ -5,6 +5,7 @@ import static org.mockito.Mockito.*;
 import dev.webshop.artikelen.ArtikelNietGevondenException;
 import dev.webshop.artikelen.ArtikelRepository;
 import dev.webshop.artikelen.ArtikelService;
+import dev.webshop.categorieen.CategorieRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,8 @@ public class ArtikelServiceTest {
     @BeforeEach
     void beforeEach() {
         artikelRepository = mock(ArtikelRepository.class);
-        artikelService = new ArtikelService(artikelRepository);
+        CategorieRepository categorieRepository = mock(CategorieRepository.class);
+        artikelService = new ArtikelService(artikelRepository, categorieRepository);
     }
 
     /*

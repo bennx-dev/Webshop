@@ -1,7 +1,8 @@
 package dev.webshop.categorieen;
 
+import dev.webshop.artikelen.Artikel;
 import jakarta.persistence.*;
-
+import java.util.Set;
 import static dev.webshop.utils.Check.*;
 
 @Entity
@@ -12,6 +13,8 @@ public class Categorie {
     private Long categorieId;
     private String naam;
     private Long hoofdCategorieId;
+    @ManyToMany(mappedBy = "categorieen")
+    Set<Artikel> artikelen;
 
     protected Categorie() {
     }

@@ -122,6 +122,6 @@ input:hover {
 }
 
 input:focus {
-    border: var(--input-focus) !important;
+    border-color: var(--footer-border-top-color) !important;
     box-shadow: var(--input-focus-box-shadow) !important;
 }
