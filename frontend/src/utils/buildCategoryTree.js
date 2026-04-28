@@ -1,3 +1,5 @@
+"use strict";
+
 export function buildCategoryTree(categories) {
     const categorieMap = new Map();
     const categoryTree = [];

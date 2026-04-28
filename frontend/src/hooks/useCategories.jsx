@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
-import RenderCategoryTree from "./renderCategoryTree.jsx";
 
-export default function Categories() {
+export default function useCategories() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -20,5 +19,5 @@ export default function Categories() {
         fetchCategories();
     }, []);
 
-    return <RenderCategoryTree categories={categories}/>;
+    return categories;
 }

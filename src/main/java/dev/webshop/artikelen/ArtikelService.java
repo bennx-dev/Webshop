@@ -22,7 +22,11 @@ public class ArtikelService {
     }
 
     Page<Artikel> findAllPaged(Pageable pageable) throws ArtikelNietGevondenException {
-        return artikelRepository.findAll(pageable);
+        long start = System.currentTimeMillis();
+        Page<Artikel> result = artikelRepository.findAll(pageable);
+        long end = System.currentTimeMillis();
+        System.out.println("ARTIKEL QUERY TIME: " + (end - start) + "ms");
+        return result;
     }
 
     public Artikel findById(Long id) {

@@ -1,11 +1,10 @@
 import {Link} from "react-router-dom";
-
-import {Logo} from "./logo.jsx";
-import {IconHamburger} from "./iconHamburger.jsx";
-import {IconAccount} from "./iconAccount.jsx";
-import {IconArrow} from "./iconArrow.jsx";
-import {IconWishlist} from "./iconWishlist.jsx";
-import {IconCart} from "./iconCart.jsx";
+import {Logo} from "./Logo.jsx";
+import {IconHamburger} from "../components/icons/IconHamburger.jsx";
+import {IconAccount} from "../components/icons/IconAccount.jsx";
+import {IconArrow} from "../components/icons/IconArrow.jsx";
+import {IconWishlist} from "../components/icons/IconWishlist.jsx";
+import {IconCart} from "../components/icons/IconCart.jsx";
 
 export default function Header() {
     return (

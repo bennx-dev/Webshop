@@ -1,7 +1,6 @@
-import {Link} from "react-router-dom";
-import {createPagination} from "./pagination.jsx";
+import Pagination from "./Pagination.jsx";
 
-export default function ProductsGrid({ products, totalPages, setPage }) {
+export default function ProductsGrid({products, totalPages, setPage}) {
 
     // render articles
     return (
@@ -11,8 +10,10 @@ export default function ProductsGrid({ products, totalPages, setPage }) {
                     return (
                         <div key={product.artikelId} className="col">
                             <div className="btn p-0 text-center d-flex flex-column artikel h-100 ">
-                                <Link to="/" className="d-flex flex-column h-100">
-                                    <img className="img-fluid w-100" src={`/webshop/assets/products/${product.artikelId}.jpg`}
+                                {/*<Link to="" className="d-flex flex-column h-100">*/}
+                                <div className="d-flex flex-column h-100">
+                                    <img className="img-fluid w-100"
+                                         src={`/webshop/assets/products/${product.artikelId}.jpg`}
                                          alt={`${product.naam}`}>
                                     </img>
                                     <h3 className="beschrijving flex-grow-1 flex-wrap">{product.beschrijving}</h3>
@@ -21,7 +22,7 @@ export default function ProductsGrid({ products, totalPages, setPage }) {
                                         <p className="stock mb-1">Voorraadlabel...CTA</p>
                                         <p className="price mb-0">{`€ ${product.prijs} (incl. btw)`}</p>
                                     </div>
-                                </Link>
+                                    {/*</Link>*/}</div>
                             </div>
                         </div>
                     );
@@ -29,9 +30,10 @@ export default function ProductsGrid({ products, totalPages, setPage }) {
             </div>
 
             {/*render pagination buttons*/}
-            <div className="my-4">
-                {createPagination(totalPages, setPage)}
-            </div>
+            <Pagination
+                totalPages={totalPages}
+                setPage={setPage}
+            />
         </div>
     );
 }
