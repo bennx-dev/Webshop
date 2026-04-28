@@ -6,7 +6,7 @@ import './css/bootstrap/js/bootstrap.bundle.min.js'
 import "./css/custom/custom.css";
 import "./css/custom/custom-categorieen.css";
 import "./css/custom/custom-artikelen.css";
-import App from './app.jsx'
+import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
