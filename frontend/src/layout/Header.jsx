@@ -33,7 +33,11 @@ export default function Header() {
             {/* Menu rechts */}
             <nav className="d-flex align-items-center navButton">
 
-                <button className="d-flex align-items-center px-1 navButton">
+                <button className="d-flex align-items-center px-1 navButton"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#loginOffcanvas"
+                        aria-controls="loginOffcanvas">
                     <IconAccount/>
                     <span className="px-1 d-none d-md-inline">Inloggen / Registreren
                         <IconArrow/>

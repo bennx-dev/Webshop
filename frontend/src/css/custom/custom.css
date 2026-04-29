@@ -50,6 +50,10 @@ header {
     color: var(--primary-text-color);
 }
 
+main {
+    padding-bottom: 80px;
+}
+
 a {
     text-decoration: var(--primary-text-decoration);
     color: var(--primary-text-color);

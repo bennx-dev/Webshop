@@ -1,4 +1,3 @@
-import LoginForm from "../components/auth/LoginForm.jsx";
 import SearchBar from "../components/search/SearchBar.jsx";
 import MobileCategorySidebar from "../components/categories/MobileCategorySidebar.jsx";
 import {useParams} from "react-router-dom";
@@ -25,7 +24,6 @@ export default function HomePage() {
                     <ArticlesContainer key={categoryId || "all"}/>
                 </div>
             </div>
-            <LoginForm/>
         </main>
     );
 }
