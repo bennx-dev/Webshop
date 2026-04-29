@@ -29,6 +29,7 @@
 
 .artikel:hover {
     border: var(--artikel-border-radius) var(--artikel-border-style) var(--artikel-hover-border-color);
+    transform: scale(1.05);
 }
 
 .price {

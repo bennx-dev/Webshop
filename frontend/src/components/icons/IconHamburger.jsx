@@ -4,7 +4,7 @@ export const IconHamburger = ({width = "1.5rem", height = "1.5rem", stroke = "#1
         width={width}
         height={height}
         fill="none"
-        stroke={stroke}
+        stroke="currentColor"
         strokeWidth="2"
     >
         <line x1="3" y1="6" x2="21" y2="6"/>

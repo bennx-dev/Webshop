@@ -1,7 +1,7 @@
 import {buildCategoryTree} from "../../utils/buildCategoryTree.js";
 import CategoryNode from "./CategoryNode.jsx";
 
-export default function CategoryTree({categories}) {
+export default function CategoryTree({categories, onClose}) {
     const tree = buildCategoryTree(categories);
 
     return (
@@ -12,7 +12,7 @@ export default function CategoryTree({categories}) {
                 <ul className="p-0 m-0">
                     {
                         tree.map(node => (
-                            <CategoryNode key={node.categorieId} node={node}/>
+                            <CategoryNode key={node.categorieId} node={node} onClose={onClose}/>
                         ))
                     }
                 </ul>

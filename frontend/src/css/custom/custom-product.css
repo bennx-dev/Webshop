@@ -1,0 +1,126 @@
+.product-detail {
+    background-color: var(--artikel-background-color);
+    border: var(--artikel-border-radius) var(--artikel-border-style) var(--artikel-border-color);
+    border-radius: 10px;
+    padding: 40px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 80px;
+    transition: --artikel-border-radius var(--standaard-transition);
+}
+
+.product-image-wrapper {
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image {
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.product-image-wrapper:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-info h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+.product-info p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.product-info .stock-label {
+    font-size: 1rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.product-info h3 {
+    font-size: 1.8rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.product-info h3:hover {
+    color: #218838;
+}
+
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    background-color: #28a745;
+    color: #fff;
+    transition: all 0.4s ease;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border: none;
+}
+
+.btn-glow:hover {
+    background-color: #218838;
+}
+
+.btn-glow:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.btn-glow:hover:before {
+    opacity: 1;
+    width: 400%;
+    height: 400%;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .product-detail {
+        padding: 30px 15px;
+    }
+
+    .product-info h1 {
+        font-size: 1.6rem;
+    }
+
+    .product-info h3 {
+        font-size: 1.4rem;
+    }
+}

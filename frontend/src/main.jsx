@@ -6,6 +6,7 @@ import './css/bootstrap/js/bootstrap.bundle.min.js'
 import "./css/custom/custom.css";
 import "./css/custom/custom-categorieen.css";
 import "./css/custom/custom-artikelen.css";
+import "./css/custom/custom-product.css";
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(

@@ -1,5 +1,4 @@
 import SearchBar from "../components/search/SearchBar.jsx";
-import MobileCategorySidebar from "../components/categories/MobileCategorySidebar.jsx";
 import {useParams} from "react-router-dom";
 import Categories from "../components/categories/Categories.jsx";
 import ArticlesContainer from "../components/articles/ArticlesContainer.jsx";
@@ -12,7 +11,7 @@ export default function HomePage() {
     return (
         <main className="container-fluid">
             <SearchBar/>
-            <MobileCategorySidebar categories={categories}/>
+            {/*<MobileCategorySidebar categories={categories} />*/}
 
             <div className="d-flex flex-row gap-3">
                 {/*desktop categorieen*/}

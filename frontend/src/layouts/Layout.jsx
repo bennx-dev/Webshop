@@ -3,11 +3,23 @@ import Header from "../layout/Header.jsx";
 import Footer from "../layout/Footer.jsx";
 import FooterBottom from "../layout/FooterBottom.jsx";
 import LoginOffcanvas from "../components/auth/LoginOffcanvas.jsx";
+import useCategories from "../hooks/useCategories.jsx";
+import {useState} from "react";
+import MobileCategorySidebar from "../components/categories/MobileCategorySidebar.jsx";
 
 export default function Layout() {
+    const categories = useCategories();
+    const [categoriesOpen, setCategoriesOpen] = useState(false);
+
     return (
         <>
-            <Header/>
+            <Header onOpenCategories={() => setCategoriesOpen(true)}/>
+
+            <MobileCategorySidebar
+                categories={categories}
+                open={categoriesOpen}
+                onClose={() => setCategoriesOpen(false)}
+            />
 
             <Outlet/>
 

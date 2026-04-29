@@ -18,7 +18,7 @@ body {
     --secondary-text-color: #FFFFFF;
     --secondary-text-decoration: underline;
 
-    --header-border-bottom: 2px solid #E5E7EB;
+    --header-border-bottom: 1px solid #E5E7EB;
 
     --footer-border-top-color: #1F2937;
     --footer-border-top: 1px solid var(--footer-border-top-color);
@@ -45,9 +45,9 @@ body {
 }
 
 header {
-    background: var(--primary-background-color);
-    border-bottom: var(--header-border-bottom);
-    color: var(--primary-text-color);
+    background: var(--primary-text-color);
+    border-bottom: var(--footer-border-top);
+    color: var(--secondary-text-color);
 }
 
 main {
@@ -58,34 +58,6 @@ a {
     text-decoration: var(--primary-text-decoration);
     color: var(--primary-text-color);
     cursor: var(--primary-cursor);
-}
-
-button {
-    background-color: var(--button-primary-background-color);
-    color: var(--button-primary-color);
-    cursor: var(--primary-cursor);
-    border-radius: var(--button-primary-border-radius);
-    border-style: var(--button-primary-border-style);
-    transition: var(--button-primary-transition);
-}
-
-button:hover {
-    background-color: var(--button-primary-background-color-hover);
-    color: var(--button-primary-color);
-}
-
-.navButton, .paginationButtons {
-    background-color: var(--button-primary-color);
-    color: var(--button-primary-background-color);
-    cursor: var(--primary-cursor);
-    border-radius: var(--button-primary-border-radius);
-    border-style: var(--button-primary-border-style);
-    transition: var(--button-primary-transition);
-    font-weight: var(--button-font-weight);
-}
-
-.navButton:hover, .paginationButtons:hover  {
-    color: var(--button-primary-color);
 }
 
 footer {
@@ -114,12 +86,6 @@ form a {
     font-weight: var(--form-a-font-weight);
 }
 
-.paginationButtons {
-    border: var(--pagination-button-border);
-    width: var(--pagination-button-width);
-    height: var(--pagination-button-height);
-}
-
 input:hover {
     border: var(--input-hover-border);
     box-shadow: var(--input-box-shadow);
@@ -128,4 +94,43 @@ input:hover {
 input:focus {
     border-color: var(--footer-border-top-color) !important;
     box-shadow: var(--input-focus-box-shadow) !important;
+}
+
+button {
+    background-color: var(--button-primary-background-color);
+    color: var(--button-primary-color);
+    border-radius: var(--button-primary-border-radius);
+    font-weight: var(--button-font-weight);
+    transition: var(--button-primary-transition);
+    cursor: var(--primary-cursor);
+}
+
+button:hover {
+    background-color: var(--button-primary-background-color-hover);
+}
+
+.navButton {
+    background-color: var(--primary-text-color);
+}
+
+.navButton, .paginationButtons {
+    cursor: var(--primary-cursor);
+    border-radius: var(--button-primary-border-radius);
+    border-style: var(--button-primary-border-style);
+    transition: var(--button-primary-transition);
+    font-weight: var(--button-font-weight);
+}
+
+.paginationButtons {
+    border: var(--pagination-button-border);
+    width: var(--pagination-button-width);
+    height: var(--pagination-button-height);
+}
+
+button.navButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.paginationButtons:hover{
+    background-color: rgba(0, 0, 0, 0.7);
 }

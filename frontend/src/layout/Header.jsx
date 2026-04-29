@@ -6,7 +6,7 @@ import {IconArrow} from "../components/icons/IconArrow.jsx";
 import {IconWishlist} from "../components/icons/IconWishlist.jsx";
 import {IconCart} from "../components/icons/IconCart.jsx";
 
-export default function Header() {
+export default function Header({onOpenCategories}) {
     return (
         <header className="container-fluid px-2 mb-1 d-flex align-items-center justify-content-between">
 
@@ -15,10 +15,9 @@ export default function Header() {
 
                 {/* Hamburger alleen mobiel */}
                 <button
-                    className="btn d-md-none px-1 pe-3"
+                    className="btn d-md-none px-1 pe-3 navButton"
                     type="button"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasCategorieen"
+                    onClick={onOpenCategories}
                     aria-controls="offcanvasCategorieen"
                 >
                     <IconHamburger/>

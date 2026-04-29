@@ -1,9 +1,10 @@
 import Categories from "./Categories.jsx";
 
-export default function MobileCategorySidebar({categories}) {
+export default function MobileCategorySidebar({categories, open, onClose}) {
     return (
         <div
-            className="offcanvas offcanvas-start categorieen"
+            className={`offcanvas offcanvas-start ${open ? "show d-block" : ""}`}
+            style={{visibility: open ? "visible" : "hidden"}}
             tabIndex="-1"
             id="offcanvasCategorieen"
             aria-labelledby="offcanvasCategorieenLabel"
@@ -15,10 +16,11 @@ export default function MobileCategorySidebar({categories}) {
                     className="btn-close"
                     data-bs-dismiss="offcanvas"
                     aria-label="Close"
+                    onClick={onClose}
                 ></button>
             </div>
             <div className="offcanvas-body">
-                <Categories categories={categories}/>
+                <Categories categories={categories} onClose={onClose}/>
             </div>
         </div>
     );
