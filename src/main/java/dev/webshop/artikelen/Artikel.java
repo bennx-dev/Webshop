@@ -32,7 +32,7 @@ public class Artikel {
             joinColumns = @JoinColumn(name = "artikelId"),
             inverseJoinColumns = @JoinColumn(name = "categorieId")
     )
-    Set<Categorie> categorieen;
+    private Set<Categorie> categorieen;
 
     protected Artikel() {
     }
@@ -121,5 +121,9 @@ public class Artikel {
 
     public Long getLeveranciersId() {
         return leveranciersId;
+    }
+
+    public Set<Categorie> getCategorieen() {
+        return categorieen;
     }
 }

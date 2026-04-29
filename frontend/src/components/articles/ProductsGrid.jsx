@@ -18,8 +18,10 @@ export default function ProductsGrid({products, totalPages, setPage}) {
                                     </img>
                                     <h3 className="beschrijving flex-grow-1 flex-wrap">{product.beschrijving}</h3>
                                     <div className="mt-auto">
-                                        <p className="categorie mb-1">Categorie...</p>
-                                        <p className="stock mb-1">Voorraadlabel...CTA</p>
+                                        <p className="categorie mb-1">{product.categorieNamen?.length
+                                            ? product.categorieNamen.join(", ")
+                                            : "Geen categorie"}</p>
+                                        <p className="stock mb-1">{product.stockLabel}</p>
                                         <p className="price mb-0">{`€ ${product.prijs} (incl. btw)`}</p>
                                     </div>
                                     {/*</Link>*/}</div>

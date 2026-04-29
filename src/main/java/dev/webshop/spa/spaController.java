@@ -8,9 +8,9 @@ public class spaController {
 
     @RequestMapping({
             // "/" start vanaf root, "{path: ... }" variabele path, "[^\\.]*" match alles behalve een punt (.) zoals /main.js -> bv /categorie
-            "/{path:[^\\.]*}",
+            "/{path:^(?!api$).*$}",
             // "**/" match ook nested routes / meerdere levels diep -> bv: /categorie/5
-            "/**/{path:[^\\.]*}"
+            "/**/{path:^(?!api$).*$}"
     })
     public String forward() {
         return "forward:/index.html";

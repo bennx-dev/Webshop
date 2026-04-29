@@ -26,7 +26,7 @@ public class ArtikelController {
     }
 
     @GetMapping
-    Page<Artikel> findAllPaged(Pageable pageable) {
+    Page<ArtikelDto> findAllPaged(Pageable pageable) {
         return artikelService.findAllPaged(pageable);
     }
 
@@ -36,7 +36,7 @@ public class ArtikelController {
     }
 
     @GetMapping("categorie/{categorieId}")
-    Page<Artikel> findByCategorieIdPaged (@PathVariable @Positive long categorieId, Pageable pageable) {
+    Page<ArtikelDto> findByCategorieIdPaged (@PathVariable @Positive long categorieId, Pageable pageable) {
         return artikelService.findByCategorieIdPaged(categorieId, pageable);
     }
 }

@@ -1,5 +1,6 @@
 package dev.webshop.artikelen;
 
+import dev.webshop.categorieen.Categorie;
 import dev.webshop.categorieen.CategorieRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -17,16 +18,28 @@ public class ArtikelService {
         this.categorieRepository = categorieRepository;
     }
 
+    private ArtikelDto mapArtikelToDTO(Artikel artikel) {
+        return new ArtikelDto(
+                artikel.getArtikelId(),
+                artikel.getNaam(),
+                artikel.getBeschrijving(),
+                artikel.getPrijs(),
+                artikel.getCategorieen()
+                        .stream()
+                        .map(Categorie::getNaam)
+                        .toList()
+                ,getStockLabel(artikel.getVoorraad())
+                ,isBeschikbaar(artikel.getVoorraad())
+        );
+    }
+
     long findAantal() {
         return artikelRepository.count();
     }
 
-    Page<Artikel> findAllPaged(Pageable pageable) throws ArtikelNietGevondenException {
-        long start = System.currentTimeMillis();
-        Page<Artikel> result = artikelRepository.findAll(pageable);
-        long end = System.currentTimeMillis();
-        System.out.println("ARTIKEL QUERY TIME: " + (end - start) + "ms");
-        return result;
+    Page<ArtikelDto> findAllPaged(Pageable pageable) throws ArtikelNietGevondenException {
+        return artikelRepository.findAll(pageable)
+                .map(this::mapArtikelToDTO);
     }
 
     public Artikel findById(Long id) {
@@ -34,7 +47,7 @@ public class ArtikelService {
                 .orElseThrow(ArtikelNietGevondenException::new);
     }
 
-    Page<Artikel> findByCategorieIdPaged(long categorieId, Pageable pageable) {
+    Page<ArtikelDto> findByCategorieIdPaged(long categorieId, Pageable pageable) {
         boolean isHoofdCategorie = categorieRepository.existsByHoofdCategorieId(categorieId);
         boolean isValidCategorie = categorieRepository.existsByCategorieId(categorieId);
 
@@ -46,6 +59,17 @@ public class ArtikelService {
             return Page.empty(pageable);
         }
 
-        return artikelRepository.findByCategorieenCategorieId(categorieId, pageable);
+        return artikelRepository.findByCategorieenCategorieId(categorieId, pageable)
+                .map(this::mapArtikelToDTO);
+    }
+
+    private String getStockLabel(long voorraad) {
+        if (voorraad <= 0) return "Uitverkocht";
+        if (voorraad <= 5) return "Bijna uitverkocht";
+        return "Op voorraad";
+    }
+
+    private boolean isBeschikbaar(long voorraad) {
+        return voorraad > 0;
     }
 }
