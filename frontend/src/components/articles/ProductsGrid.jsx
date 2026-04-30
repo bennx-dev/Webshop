@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export default function ProductsGrid({products, totalPages, setPage}) {
 
     return (
-        <div className="d-grid">
+        <div className="d-grid text-center">
 
             <div className="row gy-3 gx-3 row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 mb-4">
 

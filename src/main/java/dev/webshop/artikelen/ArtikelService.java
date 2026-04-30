@@ -42,9 +42,11 @@ public class ArtikelService {
                 .map(this::mapArtikelToDTO);
     }
 
-    public Artikel findById(Long id) {
-        return artikelRepository.findById(id)
+    public ArtikelDto findById(Long id) {
+        var artikel = artikelRepository.findById(id)
                 .orElseThrow(ArtikelNietGevondenException::new);
+
+        return mapArtikelToDTO(artikel);
     }
 
     Page<ArtikelDto> findByCategorieIdPaged(long categorieId, Pageable pageable) {

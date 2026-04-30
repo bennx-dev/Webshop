@@ -31,7 +31,7 @@ public class ArtikelController {
     }
 
     @GetMapping("artikel/{id}")
-    Artikel findById(@PathVariable @Positive Long id) {
+    ArtikelDto findById(@PathVariable @Positive Long id) {
         return artikelService.findById(id);
     }
 

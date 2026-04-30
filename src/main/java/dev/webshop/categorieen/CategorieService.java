@@ -14,7 +14,14 @@ class CategorieService {
         this.categorieRepository = categorieRepository;
     }
 
-    List<Categorie> findAll() {
-        return categorieRepository.findAll();
+    List<CategorieDto> findAll() {
+        return categorieRepository.findAll()
+                .stream()
+                .map(categorie -> new CategorieDto(
+                        categorie.getCategorieId(),
+                        categorie.getNaam(),
+                        categorie.getHoofdCategorieId()
+                ))
+                .toList();
     }
 }
