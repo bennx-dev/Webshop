@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import FooterBottom from "../layout/FooterBottom.jsx";
 
 export default function Footer() {
     return (
@@ -9,6 +10,7 @@ export default function Footer() {
             <Link to="/cookie">Cookiebeleid</Link> |{" "}
             <Link to="/over-ons">Over ons</Link> |{" "}
             <Link to="/contact">Contact</Link> <span id="footercopyright"> | © 2026 eduShop </span>
+            <FooterBottom/>
         </footer>
     );
 }

@@ -25,7 +25,7 @@ export default function ProductsGrid({products, totalPages, setPage}) {
                                 />
 
                                 <h3 className="beschrijving flex-grow-1 flex-wrap">
-                                    {product.beschrijving}
+                                    {product.naam}
                                 </h3>
 
                                 <div className="mt-auto">

@@ -3,7 +3,7 @@ import SpringIcon from "../assets/faviconSpring.svg";
 
 export default function FooterBottom() {
     return (
-        <div className="container-fluid d-grid">
+        <div className="container-fluid d-grid footerbottom">
             <div className="row">
                 <div className="col-auto">
                     <span>© Bennx </span>
@@ -18,7 +18,7 @@ export default function FooterBottom() {
 
                     <img src={SpringIcon} alt="Spring" width="16" height="16"/>
 
-                    <span> Spring / Hibernate</span>
+                    <span> Spring Mvc / Data</span>
                 </div>
             </div>
         </div>

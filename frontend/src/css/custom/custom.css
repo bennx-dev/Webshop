@@ -60,10 +60,15 @@ a {
     cursor: var(--primary-cursor);
 }
 
-footer {
+footer  {
     background: var(--primary-text-color);
     border-top: var(--footer-border-top);
     color: var(--secondary-text-color);
+}
+
+.footerbottom {
+    border-top: var(--footer-border-top);
+    border-top-color: var(--primary-background-color);
 }
 
 footer a {
