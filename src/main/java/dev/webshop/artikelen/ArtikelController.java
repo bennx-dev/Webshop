@@ -2,13 +2,12 @@ package dev.webshop.artikelen;
 
 import jakarta.validation.constraints.Positive;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 @Validated
 @RestController
@@ -38,5 +37,10 @@ public class ArtikelController {
     @GetMapping("categorie/{categorieId}")
     Page<ArtikelDto> findByCategorieIdPaged (@PathVariable @Positive long categorieId, Pageable pageable) {
         return artikelService.findByCategorieIdPaged(categorieId, pageable);
+    }
+
+    @GetMapping("random")
+    public List<ArtikelDto> random() {
+        return artikelService.findRandom10();
     }
 }
